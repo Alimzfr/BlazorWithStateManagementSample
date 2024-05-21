@@ -1,5 +1,5 @@
-using BlazorWithStateManagementSample.Client.Pages;
-using BlazorWithStateManagementSample.Components;
+using BlazorStateManagementTemplate.Client;
+using BlazorStateManagementTemplate.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddClientServices();
 
 var app = builder.Build();
 
@@ -30,6 +32,6 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(BlazorWithStateManagementSample.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(BlazorStateManagementTemplate.Client._Imports).Assembly);
 
 app.Run();

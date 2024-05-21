@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorWithStateManagementSample.Client\BlazorWithStateManagementSample.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorStateManagementTemplate.Client\BlazorStateManagementTemplate.Client.csproj" />
   </ItemGroup>
 
 </Project>
