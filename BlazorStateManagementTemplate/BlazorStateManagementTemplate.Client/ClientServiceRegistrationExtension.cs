@@ -1,4 +1,5 @@
-﻿using BlazorStateManagementTemplate.Client.StateManagement;
+﻿using BlazorStateManagementTemplate.Client.Services;
+using BlazorStateManagementTemplate.Client.StateManagement;
 using Fluxor;
 
 namespace BlazorStateManagementTemplate.Client;
@@ -14,5 +15,7 @@ public static class ClientServiceRegistrationExtension
             options.UseReduxDevTools();
 #endif
         });
+
+        services.AddScoped<IWeatherService, WeatherService>();
     }
 }

@@ -14,9 +14,4 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="StateManagement\CounterUseCase\" />
-	  <Folder Include="StateManagement\WeatherUseCase\" />
-	</ItemGroup>
-
 </Project>
