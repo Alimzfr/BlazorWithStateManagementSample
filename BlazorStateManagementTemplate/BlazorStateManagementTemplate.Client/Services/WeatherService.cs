@@ -7,7 +7,7 @@ public class WeatherService : IWeatherService
     public async Task<IEnumerable<WeatherForecastDto>> GetWeatherForecastsAsync(CancellationToken cancellationToken = default(CancellationToken))
     {
         // Simulate asynchronous loading to demonstrate streaming rendering
-        await Task.Delay(500, cancellationToken);
+        await Task.Delay(1000, cancellationToken);
 
         var startDate = DateOnly.FromDateTime(DateTime.Now);
         var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };

@@ -40,7 +40,7 @@ public class FluxorMiddleware : Middleware
 
     protected override void OnInternalMiddlewareChangeEnding()
     {
-        Console.WriteLine("OnInternalMiddlewareChangeEnding");
+        Console.WriteLine(nameof(OnInternalMiddlewareChangeEnding));
         base.OnInternalMiddlewareChangeEnding();
     }
 

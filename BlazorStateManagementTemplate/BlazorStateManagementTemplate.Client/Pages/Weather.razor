@@ -2,8 +2,9 @@
 @using BlazorStateManagementTemplate.Client.DataTransferObjects
 @using BlazorStateManagementTemplate.Client.StateManagement.WeatherUseCase
 @using Fluxor
+@using Fluxor.Blazor.Web.Components
 @attribute [StreamRendering]
-@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inherits FluxorComponent
 @inject IState<WeatherState> WeatherState
 @inject IDispatcher Dispatcher
 
