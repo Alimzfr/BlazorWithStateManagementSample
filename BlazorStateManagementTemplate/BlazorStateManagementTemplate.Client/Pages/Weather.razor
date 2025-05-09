@@ -1,8 +1,4 @@
 ﻿@page "/weather"
-@using BlazorStateManagementTemplate.Client.DataTransferObjects
-@using BlazorStateManagementTemplate.Client.StateManagement.WeatherUseCase
-@using Fluxor
-@using Fluxor.Blazor.Web.Components
 @attribute [StreamRendering]
 @inherits FluxorComponent
 @inject IState<WeatherState> WeatherState
@@ -54,13 +50,18 @@ else
     {
         if (!Initialized)
         {
-            Dispatcher.Dispatch(new WeatherActions.LoadWeatherForecastsAction { CancellationToken = _cancellationTokenSource.Token });
+            Dispatcher.Dispatch(new WeatherActions.LoadWeatherForecastsAction(_cancellationTokenSource.Token));
         }
+        await base.OnInitializedAsync();
     }
 
-    protected override void Dispose(bool disposing)
+    protected override async ValueTask DisposeAsyncCore(bool disposing)
     {
-        _cancellationTokenSource.Cancel();
-        base.Dispose(disposing);
+        if (disposing)
+        {
+            await _cancellationTokenSource.CancelAsync();
+            _cancellationTokenSource.Dispose();
+        }
+        await base.DisposeAsyncCore(disposing);
     }
 }

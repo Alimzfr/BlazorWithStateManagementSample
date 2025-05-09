@@ -11,9 +11,9 @@ public static class ClientServiceRegistrationExtension
         services.AddFluxor(options =>
         {
             options.ScanAssemblies(typeof(Program).Assembly).AddMiddleware<FluxorMiddleware>();
-            #if DEBUG
-            options.UseReduxDevTools();
-            #endif
+#if DEBUG
+            Fluxor.Blazor.Web.ReduxDevTools.OptionsReduxDevToolsExtensions.UseReduxDevTools(options);
+#endif
         });
 
         services.AddScoped<IWeatherService, WeatherService>();

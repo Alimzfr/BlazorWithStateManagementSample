@@ -4,23 +4,11 @@ namespace BlazorStateManagementTemplate.Client.StateManagement.WeatherUseCase;
 
 public class WeatherActions
 {
-    public class SetLoadingAction
-    {
-        public required bool IsLoading { get; set; }
-    }
+    public record SetLoadingAction(bool IsLoading);
 
-    public class SetInitializedAction
-    {
-        public required bool IsInitialized { get; set; }
-    }
+    public record SetInitializedAction(bool IsInitialized);
 
-    public class SetWeatherForecastsAction
-    {
-        public required IEnumerable<WeatherForecastDto> WeatherForecasts { get; set; }
-    }
+    public record SetWeatherForecastsAction(IEnumerable<WeatherForecastDto> WeatherForecasts);
 
-    public class LoadWeatherForecastsAction
-    {
-        public required CancellationToken CancellationToken { get; set; }
-    }
+    public record LoadWeatherForecastsAction(CancellationToken CancellationToken);
 }

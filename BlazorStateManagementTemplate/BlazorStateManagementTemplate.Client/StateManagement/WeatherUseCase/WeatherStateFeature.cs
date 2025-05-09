@@ -1,5 +1,4 @@
-﻿using BlazorStateManagementTemplate.Client.DataTransferObjects;
-using Fluxor;
+﻿using Fluxor;
 
 namespace BlazorStateManagementTemplate.Client.StateManagement.WeatherUseCase;
 
@@ -13,7 +12,7 @@ public class WeatherStateFeature : Feature<WeatherState>
         {
             Loading = false,
             Initialized = false,
-            WeatherForecasts = new WeatherForecastDto[] { }
+            WeatherForecasts = []
         };
     }
 }

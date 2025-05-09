@@ -1,15 +1,14 @@
 ﻿using Fluxor;
-using Newtonsoft.Json;
 
 namespace BlazorStateManagementTemplate.Client.StateManagement;
 
 public class FluxorMiddleware : Middleware
 {
-    private IStore Store;
+    private IStore _store;
 
     public override Task InitializeAsync(IDispatcher dispatcher, IStore store)
     {
-        Store = store;
+        _store = store;
         Console.WriteLine(nameof(InitializeAsync));
         return base.InitializeAsync(dispatcher, store);
     }
@@ -22,19 +21,19 @@ public class FluxorMiddleware : Middleware
 
     public override bool MayDispatchAction(object action)
     {
-        Console.WriteLine(nameof(MayDispatchAction) + ObjectInfo(action));
+        Console.WriteLine($"{nameof(MayDispatchAction)}: {action.GetType().Name}");
         return base.MayDispatchAction(action);
     }
 
     public override void BeforeDispatch(object action)
     {
-        Console.WriteLine(nameof(BeforeDispatch) + ObjectInfo(action));
+        Console.WriteLine($"{nameof(BeforeDispatch)}: {action.GetType().Name}");
         base.BeforeDispatch(action);
     }
 
     public override void AfterDispatch(object action)
     {
-        Console.WriteLine(nameof(AfterDispatch) + ObjectInfo(action));
+        Console.WriteLine($"{nameof(AfterDispatch)}: {action.GetType().Name}");
         base.AfterDispatch(action);
     }
 
@@ -43,6 +42,4 @@ public class FluxorMiddleware : Middleware
         Console.WriteLine(nameof(OnInternalMiddlewareChangeEnding));
         base.OnInternalMiddlewareChangeEnding();
     }
-
-    private string ObjectInfo(object obj) => ": " + obj.GetType().Name + " " + JsonConvert.SerializeObject(obj, Formatting.Indented);
 }

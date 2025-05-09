@@ -2,5 +2,5 @@
 
 public class CounterActions
 {
-    public class IncrementCounterAction { }
+    public record IncrementCounterAction();
 }
